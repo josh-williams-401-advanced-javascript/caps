@@ -1,12 +1,15 @@
 'use strict';
 
 const events = require('./events');
-const vendor = require('./vendor');
+require('./driver');
+require('./vendor');
 
-events.on('pickup', logPickup);
-function logPickup(payload) {
+events.on('pickup', payload => logEvent('pickup', payload));
+events.on('in-transit', payload => logEvent('in-transit', payload));
+events.on('delivered', payload => logEvent('delivered', payload));
+function logEvent(event, payload) {
   const EVENT = {
-    event: 'pickup',
+    event: event,
     time: new Date(),
     payload: payload,
   };

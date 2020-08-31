@@ -5,8 +5,8 @@ const events = require('./events');
 const faker = require('faker');
 const storeName = process.env.STORE_NAME || 'Great Deliveries';
 
-events.on('delivered', id => {
-  console.log(`VENDOR: Thank you for delivering ${id}`);
+events.on('delivered', payload => {
+  console.log(`VENDOR: Thank you for delivering ${payload.orderID}`);
 });
 
 module.exports = setInterval(() => {
