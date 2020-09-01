@@ -2,11 +2,9 @@
 
 const events = require('./events');
 
-require('./vendor');
+events.on('pickup', deliveredHandler);
 
-events.on('pickup', driving);
-
-function driving(payload) {
+function deliveredHandler(payload) {
   setTimeout(() => {
     console.log(`DRIVER: picked up ${payload.orderID}`);
     events.emit('in-transit', payload);

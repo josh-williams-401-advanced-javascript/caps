@@ -2,7 +2,9 @@
 
 const events = require('./events');
 require('./driver');
-require('./vendor');
+require('./vendor').start();
+
+
 
 events.on('pickup', payload => logEvent('pickup', payload));
 events.on('in-transit', payload => logEvent('in-transit', payload));
