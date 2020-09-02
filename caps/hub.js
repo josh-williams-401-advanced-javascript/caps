@@ -23,8 +23,8 @@ server.on('connection', (socket) => {
       broadcastEvent(eventInfo);
     }
   });
-  socket.on('error', err => console.log('SOCKET ERROR', err));
-  socket.on('end', err => delete socketPool[id]);
+  socket.on( 'error', err => console.log('SOCKET ERROR', err) );
+  socket.on( 'end', err => delete socketPool[id] );
 });
 
 function broadcastEvent (eventInfo) {
