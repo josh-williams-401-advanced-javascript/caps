@@ -1,8 +1,8 @@
 {
-  "name": "socket-io",
+  "name": "vendor",
   "version": "1.0.0",
   "description": "",
-  "main": "driver.js",
+  "main": "vendor.test.js",
   "scripts": {
     "start": "node index.js",
     "lint": "eslint **/*.js",
@@ -13,10 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^8.2.0",
-    "faker": "^5.1.0",
     "jest": "^26.4.2",
-    "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.0"
   }
 }

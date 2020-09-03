@@ -9,11 +9,11 @@ capNamespace.on('pickup', order => onPickup(order));
 
 function onPickup(order) {
   setTimeout(() => {
-    console.log(`pickup ${order.orderID}`);
+    console.log(`DRIVER: picked up ${order.orderID}`);
     capNamespace.emit('in-transit', order);
   }, 1500);
   setTimeout(() => {
-    console.log(`delivered ${order.orderID}`);
+    console.log(`DRIVER: delivered ${order.orderID}`);
     capNamespace.emit('delivered', order);
   }, 3000);
 }

@@ -6,7 +6,7 @@ const io = require('socket.io-client');
 const storeName = process.env.STORE_NAME;
 const faker = require('faker');
 
-const capsNamespace = io.connect(`http://localhost:${process.env.PORT || 8080}/caps`);
+const capsNamespace = io.connect(`http://localhost:${process.env.PORT || 8080 }/caps`);
 
 capsNamespace.emit('join', storeName);
 capsNamespace.on('delivered', payload => {
@@ -27,4 +27,6 @@ function startOrders() {
 
 startOrders();
 
+// For testing
+module.exports = { start: () => startOrders() };
 
