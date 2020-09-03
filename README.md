@@ -1,3 +1,57 @@
+# Lab Class 18
+
+## Project: Caps
+
+### Author: Josh Williams
+
+### Links and Resources
+ - [Server](./socket-io/server.js)
+ - [Driver](./socket-io/driver.js)
+ - [Vendor](./socket-io/vendor.js)
+  
+### Setup
+#### `.env` requirements 
+#####  `/socket-io/.env`
+PORT=
+STORE_NAME=
+
+#### How to initialize and run the application: 
+```
+git clone https://github.com/josh-williams-401-advanced-javascript/caps.git
+
+cd caps/socket-io
+npm i
+```
+You need three terminal windows open
+#### Window 1:
+``` 
+nodemon server.js
+```
+#### Window 2:
+``` 
+nodemon driver.js
+```
+#### Window 3:
+``` 
+nodemon vendor.js
+```
+Fit them all onto one screen to see how they interact.
+
+#### Tests
+```
+cd socketio-tests
+cd driver
+npm i
+cd ../vendor
+npm i
+cd ../../
+npm test
+```
+
+#### UML
+![UML](./img/caps-uml-lab-18.png)
+
+
 # Lab Class 17
 
 ## Project: Caps
