@@ -35,7 +35,23 @@ nodemon driver.js
 ``` 
 nodemon vendor.js
 ```
+#### Window 4: - Stretch Goal
+```
+nodemon express.js
+```
+Run custom orders with Postman on `localhost:3001/pickup` with Query Params in the following format. This can be used with or without vendor.js:
+```
+{
+  "store": "Flower Power",
+  "orderID": "4023490zdffdg",
+  "customer": "Jimi Hendrix",
+  "address": "Sweet Home, AL"
+ }
+```
+
+
 Fit them all onto one screen to see how they interact.
+
 
 #### Tests
 ```
