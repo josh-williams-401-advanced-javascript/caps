@@ -2,21 +2,24 @@
 
 require('dotenv').config();
 
-const io =require('socket.io')(process.env.PORT || 8080);
+const io = require('socket.io')(process.env.PORT || 8080);
 
-const storeName = process.env.STORE_NAME;
 const capsNamespace = io.of('/caps');
+let roomName = '';
 
 capsNamespace.on('connection', socket => {
-  console.log('connected to socket', socket.id, 'on /caps');
+  console.log('connected to socket', socket.id);
 
-  socket.on('join', room =>  socket.join(room));
+  socket.on('join', room => {
+    socket.join(room);
+    roomName = room;
+  });
 
   socket.on('pickup', eventHandler('pickup'));
 
-  socket.on('in-transit', eventHandler('in-transit', storeName));
+  socket.on('in-transit', eventHandler('in-transit', roomName));
 
-  socket.on('delivered', eventHandler('delivered', storeName));
+  socket.on('delivered', eventHandler('delivered', roomName));
 
 });
 
