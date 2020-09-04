@@ -2,22 +2,29 @@
 
 const express = require('express');
 const app = express();
+const cors = require('cors');
+
+
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 require('dotenv').config();
 
 const io = require('socket.io-client');
 const capsNamespace = io.connect(`http://localhost:${process.env.PORT || 8080}/caps`);
 
 app.post('/pickup', (req, res) => {
-  if (!req.query.store) {
-    req.query = {
+  if (!req.body.store) {
+    req.body = {
       store: '1-206-flowers',
       orderID: '4023490zdffdg',
       customer: 'Jimi Hendrix',
       address: 'Sweet Home, AL',
     };
   }
-  capsNamespace.emit('join', req.query.store);
-  capsNamespace.emit('pickup', req.query);
+  console.log(req.body);
+  capsNamespace.emit('join', req.body.store);
+  capsNamespace.emit('pickup', req.body);
   res.status(200).send();
 });
 

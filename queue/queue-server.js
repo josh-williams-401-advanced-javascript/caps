@@ -12,7 +12,7 @@ capsNamespace.on('connection', socket => {
 
   console.log('connected to socket', socket.id);
 
-  socket.on('subscribe', room => {
+  socket.on('join', room => {
     socket.join(room);
     if (!queue[room]) {
       queue[room] = {};
@@ -24,12 +24,11 @@ capsNamespace.on('connection', socket => {
   socket.on('received', payload => {
     if (queue[payload.store] && queue[payload.store][payload.orderID]) {
       delete queue[payload.store][payload.orderID];
-      console.log(queue);
     }
   });
 
-  socket.on('getAll', storeName => {
-    if (Object.keys(queue[storeName]).length) {
+  socket.on('getall', storeName => {
+    if (queue[storeName] && Object.keys(queue[storeName]).length) {
       for (let id in queue[storeName]) {
         let payload = queue[storeName][id];
         capsNamespace.to(storeName).emit('delivered', payload);
@@ -41,7 +40,6 @@ capsNamespace.on('connection', socket => {
     const payload = queue[deliveryDetails.retailer][deliveryDetails.code];
     eventHandler('delivered')(payload);
   });
-
 });
 
 function eventHandler(event) {
@@ -66,6 +64,5 @@ function eventHandler(event) {
       time: new Date().toUTCString(),
       payload,
     });
-
   };
 }

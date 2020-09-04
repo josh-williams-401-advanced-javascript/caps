@@ -7,9 +7,9 @@ const storeName = 'acme-widgets';
 
 const capsNamespace = io.connect(`http://localhost:${process.env.PORT || 8080}/caps`);
 
-capsNamespace.emit('subscribe', storeName);
+capsNamespace.emit('join', storeName);
 
-capsNamespace.emit('getAll', storeName);
+capsNamespace.emit('getall', storeName);
 
 capsNamespace.on('delivered', payload => {
   console.log(`Thank you for delivering ${payload.orderID}`);
