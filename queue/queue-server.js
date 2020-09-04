@@ -37,7 +37,12 @@ capsNamespace.on('connection', socket => {
   });
 
   socket.on('delivered', deliveryDetails => {
-    const payload = queue[deliveryDetails.retailer][deliveryDetails.code];
+    let payload;
+    if(queue[deliveryDetails.retailer] && queue[deliveryDetails.retailer][deliveryDetails.code]) {
+      payload = queue[deliveryDetails.retailer][deliveryDetails.code];
+    } else {
+      payload = 'Bad delivery';
+    }
     eventHandler('delivered')(payload);
   });
 });
