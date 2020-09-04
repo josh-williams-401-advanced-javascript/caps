@@ -12,7 +12,7 @@
   
 ### Setup
 #### `.env` requirements 
-#####  `/socket-io/.env`
+#####  `/queue/.env`
 PORT=
 
 #### How to initialize and run the application: 
