@@ -60,7 +60,9 @@ Fit all terminals onto one screen to see how they interact. There are no automat
 
 
 #### Tests
-There are no unit tests. Please use the methods described to test.
+```
+npm test
+```
 
 #### UML
 ![UML](./img/caps-uml-lab-19.png)  
