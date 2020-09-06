@@ -39,3 +39,5 @@ app.post('/delivery/:retailer/:code', (req, res) => {
 });
 
 app.listen(3001, () => console.log('listening on 3001'));
+
+module.exports = { server: app };

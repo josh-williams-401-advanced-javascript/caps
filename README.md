@@ -21,24 +21,24 @@ git clone https://github.com/josh-williams-401-advanced-javascript/caps.git
 
 npm i
 
-cd caps/queue
+cd caps
 ```
 You need four terminal windows open:
 #### Window 1:
 ``` 
-nodemon queue-server.js
+nodemon queue/queue-server.js
 ```
 #### Window 2:
 ``` 
-nodemon caps-api.js
+nodemon queue/caps-api.js
 ```
 #### Window 3:
 ``` 
-nodemon acme-widgets.js
+nodemon queue/acme-widgets.js
 ```
 #### Window 4:
 ```
-nodemon 1-206-flowers.js
+nodemon queue/1-206-flowers.js
 ```
 
 Run default order with POST `localhost:3001/pickup` and a corresponding custom delivery with POST `localhost:3001/delivery`  
@@ -60,7 +60,9 @@ Fit all terminals onto one screen to see how they interact. There are no automat
 
 
 #### Tests
-There are no unit tests. Please use the methods described to test.
+```
+npm test
+```
 
 #### UML
 ![UML](./img/caps-uml-lab-19.png)  
