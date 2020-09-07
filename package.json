@@ -2,7 +2,7 @@
   "name": "caps",
   "version": "1.0.0",
   "description": "",
-  "main": "src/caps.js",
+  "main": "queue/caps-api.js",
   "scripts": {
     "test": "jest --verbose --coverage",
     "test-watch": "jest --watchAll --verbose --coverage"
