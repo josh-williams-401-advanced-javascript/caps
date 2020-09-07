@@ -13,6 +13,10 @@ require('dotenv').config();
 const io = require('socket.io-client');
 const capsNamespace = io.connect(`${process.env.SOCKET_PORT}/caps`);
 
+app.get('/', (req,res) => {
+  res.status(200).send('socket live!!');
+});
+
 app.post('/pickup', (req, res) => {
   if (!req.body.store) {
     req.body = {
