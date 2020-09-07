@@ -11,7 +11,7 @@ app.use(express.urlencoded({extended:true}));
 require('dotenv').config();
 
 const io = require('socket.io-client');
-const capsNamespace = io.connect(`${process.env.SOCKET_PORT}/caps`);
+const capsNamespace = io.connect(process.env.SOCKET_PORT);
 
 app.get('/', (req,res) => {
   res.status(200).send('socket live!!');
