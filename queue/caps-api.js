@@ -11,7 +11,7 @@ app.use(express.urlencoded({extended:true}));
 require('dotenv').config();
 
 const io = require('socket.io-client');
-const capsNamespace = io.connect(`http://localhost:${process.env.PORT || 8080}/caps`);
+const capsNamespace = io.connect(`${process.env.SOCKET_PORT}/caps`);
 
 app.post('/pickup', (req, res) => {
   if (!req.body.store) {
@@ -38,6 +38,6 @@ app.post('/delivery/:retailer/:code', (req, res) => {
   res.status(200).send();
 });
 
-app.listen(3001, () => console.log('listening on 3001'));
+app.listen(process.env.PORT, () => console.log('listening on 3001'));
 
 module.exports = { server: app };

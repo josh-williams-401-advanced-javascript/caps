@@ -5,7 +5,7 @@ require('dotenv').config();
 const io = require('socket.io-client');
 const storeName = '1-206-flowers';
 
-const capsNamespace = io.connect(`http://localhost:${process.env.PORT || 8080}/caps`);
+const capsNamespace = io.connect(`${process.env.SOCKET_PORT}/caps`);
 
 capsNamespace.emit('join', storeName);
 

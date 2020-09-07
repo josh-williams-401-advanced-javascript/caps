@@ -2,7 +2,7 @@
 
 require('dotenv').config();
 
-const io = require('socket.io')(process.env.PORT || 8080);
+const io = require('socket.io')(process.env.SOCKET_PORT || 8080);
 
 const capsNamespace = io.of('/caps');
 
